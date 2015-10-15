@@ -11,6 +11,12 @@ import io.pivotal.quotes.exception.SymbolNotFoundException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +27,8 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 @Service
+@EnableCaching
+@Configuration
 public class QuoteService {
 
 	//TODO: change to get URL from Cloud service?
@@ -39,6 +47,7 @@ public class QuoteService {
 	 * @return The quote object or null if not found.
 	 * @throws SymbolNotFoundException 
 	 */
+	@Cacheable("quote")
 	public Quote getQuote(String symbol) throws SymbolNotFoundException {
 		logger.debug("QuoteService.getQuote: retrieving quote for: " + symbol);
 		Map<String, String> params = new HashMap<String, String>();
@@ -67,5 +76,11 @@ public class QuoteService {
 	    CompanyInfo[] companies = restTemplate.getForObject(COMPANY_URL, CompanyInfo[].class, params);
 	    logger.debug("QuoteService.getCompanyInfo: retrieved info: " + companies);
 		return Arrays.asList(companies);
+	}
+
+	@Bean
+	public CacheManager cacheManager() {
+		return new ConcurrentMapCacheManager("quote");
+
 	}
 }
