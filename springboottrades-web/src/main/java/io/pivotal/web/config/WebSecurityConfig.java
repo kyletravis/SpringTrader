@@ -48,7 +48,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**")
                 //actuator endpoints
                 .antMatchers("/refresh").antMatchers("/env").antMatchers("/health").antMatchers("/hystrix.stream")
-                .antMatchers("/images/**").antMatchers("/css/**").antMatchers("/js/**").antMatchers("/quote/**");
+                .antMatchers("/images/**").antMatchers("/css/**").antMatchers("/js/**").antMatchers("/quote/**")
+                .antMatchers("/summary");
     }
 	
 	@Autowired

@@ -2,6 +2,7 @@ package io.pivotal.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import io.pivotal.web.domain.MarketSummary;
 import io.pivotal.web.domain.Order;
 import io.pivotal.web.domain.Search;
 import io.pivotal.web.service.MarketService;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class PortfolioController {
 	private static final Logger logger = LoggerFactory
@@ -27,6 +30,7 @@ public class PortfolioController {
 	
 	@Autowired
 	private MarketService marketService;
+
 	@RequestMapping(value = "/portfolio", method = RequestMethod.GET)
 	public String portfolio(Model model) {
 		logger.debug("/portfolio");
@@ -49,6 +53,12 @@ public class PortfolioController {
 		}
 		
 		return "portfolio";
+	}
+
+	@RequestMapping(value = "/summary", method = RequestMethod.GET)
+	public MarketSummary defaultTickers() {
+		logger.debug("/summary");
+		return marketService.getMarketSummary();
 	}
 
 	@ExceptionHandler({ Exception.class })

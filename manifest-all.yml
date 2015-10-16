@@ -20,6 +20,7 @@ applications:
       - config-server
 - name: portfolio
   path: springboottrades-portfolio/build/libs/portfolio-0.2.jar
+  memory: 1G
   services:
       - trader-db
       - trader-registry
