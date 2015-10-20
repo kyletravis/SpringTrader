@@ -91,7 +91,7 @@ project(':springboottrades-accounts') {
 		compile "org.springframework.cloud:spring-cloud-starter-config"
 		compile "org.springframework.boot:spring-boot-starter-actuator"
         compile "org.springframework.cloud:spring-cloud-starter-sleuth"
-        compile "org.springframework.cloud:spring-cloud-starter-zipkin"
+        // compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 
 		// test packages
 		testCompile "org.springframework.boot:spring-boot-starter-test"
@@ -118,7 +118,7 @@ project(':springboottrades-quotes') {
         compile "org.springframework.boot:spring-boot-starter-actuator"
         compile "org.springframework.cloud:spring-cloud-starter-config"
 		compile "org.springframework.cloud:spring-cloud-starter-sleuth"
-		compile "org.springframework.cloud:spring-cloud-starter-zipkin"
+	//	compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 
 		//runtime
 
@@ -141,7 +141,7 @@ project(':springboottrades-portfolio') {
         compile "org.springframework.cloud:spring-cloud-starter-config"
         compile "org.springframework.boot:spring-boot-starter-actuator"
         compile "org.springframework.cloud:spring-cloud-starter-sleuth"
-        compile "org.springframework.cloud:spring-cloud-starter-zipkin"
+        // compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 
 		//runtime
 		runtime "mysql:mysql-connector-java:${mysqlVersion}"
@@ -174,7 +174,7 @@ project(':springboottrades-web') {
         compile "org.springframework.cloud:spring-cloud-starter-config"
 		compile "org.springframework.boot:spring-boot-starter-actuator"
         compile "org.springframework.cloud:spring-cloud-starter-sleuth"
-        compile "org.springframework.cloud:spring-cloud-starter-zipkin"
+        // compile "org.springframework.cloud:spring-cloud-starter-zipkin"
 
 		compile "org.thymeleaf.extras:thymeleaf-extras-springsecurity4"
 
