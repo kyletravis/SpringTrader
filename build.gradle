@@ -166,8 +166,8 @@ project(':springboottrades-web') {
 		compile "org.springframework.cloud:spring-cloud-core"
 		compile "org.springframework.cloud:spring-cloud-spring-service-connector"
 
-
-		compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+                compile("org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE")
+		// compile "org.springframework.boot:spring-boot-starter-thymeleaf"
 		compile "org.springframework.boot:spring-boot-starter-security"
         compile "org.springframework.cloud:spring-cloud-starter-eureka"
         compile "org.springframework.cloud:spring-cloud-starter-hystrix"
