@@ -19,10 +19,10 @@ import org.springframework.context.annotation.Bean;
 @EnableDiscoveryClient
 public class AccountsApplication {
 
-	@Bean
-	public AlwaysSampler defaultSampler() {
-		return new AlwaysSampler();
-	}
+//	@Bean
+//	public AlwaysSampler defaultSampler() {
+//		return new AlwaysSampler();
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(AccountsApplication.class, args);
